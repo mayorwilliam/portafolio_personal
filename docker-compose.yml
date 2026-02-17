@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  portfolio:
+    container_name: portfolio
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      # - NOTION_TOKEN=your_token_here
+      # - NOTION_DATABASE_ID=your_db_id_here
+    networks:
+      - portfolio_net
+
+networks:
+  portfolio_net:
+    driver: bridge
