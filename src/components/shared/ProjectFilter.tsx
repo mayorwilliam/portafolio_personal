@@ -1,0 +1,63 @@
+"use client";
+
+import { useSearchParams, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+
+interface ProjectFilterProps {
+    categories: string[];
+}
+
+const categoryLabels: Record<string, string> = {
+    fullstack: "Full Stack",
+    frontend: "Frontend",
+    backend: "Backend",
+    mobile: "Mobile",
+    devops: "DevOps",
+    "ai-ml": "AI / ML",
+};
+
+export function ProjectFilter({ categories }: ProjectFilterProps) {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const active = searchParams.get("category") || "all";
+
+    function setCategory(category: string) {
+        const params = new URLSearchParams(searchParams.toString());
+        if (category === "all") {
+            params.delete("category");
+        } else {
+            params.set("category", category);
+        }
+        router.push(`/projects?${params.toString()}`, { scroll: false });
+    }
+
+    return (
+        <div className="flex flex-wrap gap-2 mb-8">
+            <button
+                onClick={() => setCategory("all")}
+                className={cn(
+                    "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
+                    active === "all"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                )}
+            >
+                All
+            </button>
+            {categories.map((cat) => (
+                <button
+                    key={cat}
+                    onClick={() => setCategory(cat)}
+                    className={cn(
+                        "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
+                        active === cat
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-secondary text-muted-foreground hover:text-foreground"
+                    )}
+                >
+                    {categoryLabels[cat] || cat}
+                </button>
+            ))}
+        </div>
+    );
+}

@@ -1,0 +1,49 @@
+[
+    {
+        "id": "exp-1",
+        "company": "Tech Company A",
+        "companyUrl": "https://company-a.example.com",
+        "role": "Senior Fullstack Developer",
+        "period": "Jan 2023 - Present",
+        "startDate": "2023-01-01",
+        "description": [
+            "Led development of microservices architecture serving 100K+ daily active users",
+            "Designed and implemented real-time data pipeline reducing latency by 60%",
+            "Mentored team of 4 junior developers, establishing code review practices",
+            "Introduced CI/CD pipeline reducing deployment time from 2 hours to 15 minutes"
+        ],
+        "techUsed": ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS", "Docker"]
+    },
+    {
+        "id": "exp-2",
+        "company": "Startup B",
+        "companyUrl": "https://startup-b.example.com",
+        "role": "Fullstack Developer",
+        "period": "Mar 2021 - Dec 2022",
+        "startDate": "2021-03-01",
+        "endDate": "2022-12-31",
+        "description": [
+            "Built core platform features from 0 to 1, contributing to Series A funding",
+            "Developed REST and GraphQL APIs handling 50K+ requests per minute",
+            "Implemented authentication system with OAuth2, RBAC, and MFA",
+            "Optimized database queries resulting in 40% improvement in response times"
+        ],
+        "techUsed": ["React", "TypeScript", "NestJS", "GraphQL", "MongoDB", "Kubernetes"]
+    },
+    {
+        "id": "exp-3",
+        "company": "Agency C",
+        "companyUrl": "https://agency-c.example.com",
+        "role": "Frontend Developer",
+        "period": "Jun 2019 - Feb 2021",
+        "startDate": "2019-06-01",
+        "endDate": "2021-02-28",
+        "description": [
+            "Developed responsive web applications for 10+ clients across various industries",
+            "Created reusable component library reducing development time by 30%",
+            "Implemented accessibility improvements achieving WCAG 2.1 AA compliance",
+            "Collaborated with UX designers to translate Figma designs into pixel-perfect interfaces"
+        ],
+        "techUsed": ["React", "Vue.js", "TypeScript", "Sass", "Webpack", "Figma"]
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "id": "test-1",
+        "name": "Maria Garcia",
+        "role": "CTO",
+        "company": "Tech Company A",
+        "quote": "One of the most talented developers I've worked with. Consistently delivers high-quality code and brings innovative solutions to complex problems. A true asset to any team.",
+        "featured": true
+    },
+    {
+        "id": "test-2",
+        "name": "Carlos Rodriguez",
+        "role": "Product Manager",
+        "company": "Startup B",
+        "quote": "Exceptional ability to translate business requirements into technical solutions. Always goes above and beyond to ensure the product meets user needs and performance standards.",
+        "featured": true
+    },
+    {
+        "id": "test-3",
+        "name": "Ana Martinez",
+        "role": "Lead Designer",
+        "company": "Agency C",
+        "quote": "A developer who truly understands design. Working together was seamless - they brought our designs to life with pixel-perfect precision and added thoughtful interactions.",
+        "featured": true
+    }
+]

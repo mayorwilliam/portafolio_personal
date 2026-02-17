@@ -1,0 +1,38 @@
+[
+    { "name": "React", "category": "frontend", "level": 95 },
+    { "name": "Next.js", "category": "frontend", "level": 95 },
+    { "name": "TypeScript", "category": "frontend", "level": 90 },
+    { "name": "Tailwind CSS", "category": "frontend", "level": 90 },
+    { "name": "Vue.js", "category": "frontend", "level": 75 },
+
+    { "name": "Node.js", "category": "backend", "level": 90 },
+    { "name": "NestJS", "category": "backend", "level": 85 },
+    { "name": "Python", "category": "backend", "level": 80 },
+    { "name": "GraphQL", "category": "backend", "level": 80 },
+    { "name": "REST APIs", "category": "backend", "level": 95 },
+
+    { "name": "PostgreSQL", "category": "databases", "level": 85 },
+    { "name": "MongoDB", "category": "databases", "level": 80 },
+    { "name": "Redis", "category": "databases", "level": 75 },
+
+    { "name": "Docker", "category": "devops", "level": 85 },
+    { "name": "Kubernetes", "category": "devops", "level": 75 },
+    { "name": "AWS", "category": "devops", "level": 80 },
+    { "name": "CI/CD", "category": "devops", "level": 85 },
+    { "name": "Terraform", "category": "devops", "level": 70 },
+
+    { "name": "React Native", "category": "mobile", "level": 75 },
+    { "name": "Expo", "category": "mobile", "level": 70 },
+
+    { "name": "TensorFlow", "category": "ai-ml", "level": 60 },
+    { "name": "OpenAI API", "category": "ai-ml", "level": 75 },
+    { "name": "LangChain", "category": "ai-ml", "level": 65 },
+
+    { "name": "Jest", "category": "testing", "level": 85 },
+    { "name": "Cypress", "category": "testing", "level": 75 },
+    { "name": "Playwright", "category": "testing", "level": 70 },
+
+    { "name": "Git", "category": "tools", "level": 90 },
+    { "name": "Figma", "category": "tools", "level": 70 },
+    { "name": "Linux", "category": "tools", "level": 80 }
+]

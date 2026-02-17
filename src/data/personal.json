@@ -1,0 +1,14 @@
+{
+    "name": "Tu Nombre",
+    "title": "Senior Fullstack Developer",
+    "bio": "Building scalable microservices, immersive web experiences, and robust architectures. Passionate about transforming complex problems into elegant, maintainable code.",
+    "email": "contact@tudominio.dev",
+    "socialLinks": [
+        { "platform": "github", "url": "https://github.com/tu-usuario", "label": "GitHub" },
+        { "platform": "linkedin", "url": "https://linkedin.com/in/tu-usuario", "label": "LinkedIn" },
+        { "platform": "twitter", "url": "https://twitter.com/tu-usuario", "label": "Twitter" }
+    ],
+    "availabilityStatus": "available",
+    "resumeUrl": "/resume.pdf",
+    "heroTechHighlights": ["React/Next.js", "Node.js/NestJS", "PostgreSQL", "AWS", "Docker"]
+}
