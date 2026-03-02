@@ -20,7 +20,7 @@ export default function Home() {
   const testimonials = getTestimonials();
 
   return (
-    <main className="min-h-screen bg-background relative selection:bg-primary/20">
+    <main className="min-h-screen bg-background relative">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
         Skip to content
       </a>
@@ -30,20 +30,23 @@ export default function Home() {
       <div id="main-content">
         <Hero personal={personal} />
 
-        <AnimatedSection className="container py-20 px-4" id="projects">
-          <div className="mb-12 flex items-center justify-between">
+        {/* Featured Work */}
+        <AnimatedSection className="container py-32 px-4 sm:px-8" id="projects">
+          <div className="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-2">Featured Work</h2>
-              <p className="text-muted-foreground">A selection of my recent technical projects.</p>
+              <p className="inline-block text-xs font-mono uppercase tracking-[0.15em] bg-foreground text-background rounded-full px-3 py-1 mb-3">Selected Work</p>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight">
+                Featured Projects
+              </h2>
             </div>
             <Link href="/projects" className="hidden sm:block">
-              <Button variant="ghost" className="group">
-                View All Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
+                All projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -51,7 +54,7 @@ export default function Home() {
 
           <div className="mt-8 text-center sm:hidden">
             <Link href="/projects">
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full rounded-full">
                 View All Projects
               </Button>
             </Link>

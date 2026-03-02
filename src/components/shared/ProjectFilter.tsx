@@ -32,14 +32,14 @@ export function ProjectFilter({ categories }: ProjectFilterProps) {
     }
 
     return (
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-10">
             <button
                 onClick={() => setCategory("all")}
                 className={cn(
-                    "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
+                    "rounded-full px-4 py-2 text-xs font-medium transition-all",
                     active === "all"
                         ? "bg-primary text-primary-foreground"
-                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                        : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
                 )}
             >
                 All
@@ -49,10 +49,10 @@ export function ProjectFilter({ categories }: ProjectFilterProps) {
                     key={cat}
                     onClick={() => setCategory(cat)}
                     className={cn(
-                        "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
+                        "rounded-full px-4 py-2 text-xs font-medium transition-all",
                         active === cat
                             ? "bg-primary text-primary-foreground"
-                            : "bg-secondary text-muted-foreground hover:text-foreground"
+                            : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
                     )}
                 >
                     {categoryLabels[cat] || cat}

@@ -1,5 +1,4 @@
 import type { Testimonial } from "@/types/schema";
-import { Quote } from "lucide-react";
 
 interface TestimonialCardProps {
     testimonial: Testimonial;
@@ -13,28 +12,29 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
         .toUpperCase();
 
     return (
-        <div className="relative rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
-            <Quote className="absolute top-4 right-4 h-8 w-8 text-primary/20" />
+        <div className="relative rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border hover:shadow-sm h-full flex flex-col">
+            {/* Quote mark */}
+            <div className="text-4xl font-display text-muted-foreground/15 leading-none mb-3 select-none">&ldquo;</div>
 
-            <p className="mb-6 text-muted-foreground leading-relaxed italic">
-                &ldquo;{testimonial.quote}&rdquo;
+            <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
+                {testimonial.quote}
             </p>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 pt-4 border-t border-border">
                 {testimonial.avatarUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                         src={testimonial.avatarUrl}
                         alt={testimonial.name}
-                        className="h-10 w-10 rounded-full object-cover"
+                        className="h-9 w-9 rounded-full object-cover ring-2 ring-border"
                     />
                 ) : (
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary ring-2 ring-border">
                         {initials}
                     </div>
                 )}
                 <div>
-                    <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
+                    <p className="text-sm font-medium text-foreground">{testimonial.name}</p>
                     <p className="text-xs text-muted-foreground">
                         {testimonial.role}, {testimonial.company}
                     </p>

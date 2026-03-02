@@ -1,5 +1,7 @@
+"use client";
+
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
-import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import type { Skill } from "@/types/schema";
 
 const categoryLabels: Record<string, string> = {
@@ -25,31 +27,38 @@ export function Skills({ skills }: SkillsProps) {
     }, {});
 
     return (
-        <AnimatedSection className="container py-20 px-4 bg-secondary/20 rounded-3xl my-20">
-            <h2 className="text-3xl font-bold tracking-tight mb-12 text-center">Technical Arsenal</h2>
+        <AnimatedSection className="py-32">
+            <div className="container px-4 sm:px-8">
+                <div className="mb-16">
+                    <p className="inline-block text-xs font-mono uppercase tracking-[0.15em] bg-foreground text-background rounded-full px-3 py-1 mb-3">Expertise</p>
+                    <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight">Technical Skills</h2>
+                </div>
 
-            <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-                {Object.entries(grouped).map(([category, items]) => (
-                    <div key={category} className="space-y-4">
-                        <h3 className="text-base font-mono uppercase tracking-wider text-primary border-b border-border pb-2">
-                            {categoryLabels[category] || category}
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                            {items.map((skill) => (
-                                <div key={skill.name} className="flex flex-col gap-1">
-                                    <Badge variant="outline" className="text-sm py-1 px-3 bg-background/50 hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default">
-                                        {skill.name}
-                                    </Badge>
-                                    {skill.level != null && (
-                                        <div className="h-1 w-full bg-secondary overflow-hidden rounded-full">
-                                            <div className="h-full bg-primary/50" style={{ width: `${skill.level}%` }} />
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    {Object.entries(grouped).map(([category, items], catIndex) => (
+                        <motion.div
+                            key={category}
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: catIndex * 0.06 }}
+                            className="space-y-5"
+                        >
+                            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground pb-3 border-b border-border">
+                                {categoryLabels[category] || category}
+                            </h3>
+                            <div className="space-y-3">
+                                {items.map((skill) => (
+                                    <div key={skill.name}>
+                                        <span className="text-sm text-foreground">
+                                            {skill.name}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </AnimatedSection>
     );

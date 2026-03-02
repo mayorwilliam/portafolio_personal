@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, JetBrains_Mono, Syne } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getSiteConfig, getPersonalInfo } from "@/lib/data";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+});
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-display",
 });
 
 const site = getSiteConfig();
@@ -52,7 +59,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground`}>
+      <body className={`${plusJakarta.variable} ${jetbrainsMono.variable} ${syne.variable} font-sans bg-background text-foreground antialiased`}>
         <ThemeProvider>
           {children}
         </ThemeProvider>

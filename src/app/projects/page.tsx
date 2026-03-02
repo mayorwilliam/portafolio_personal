@@ -30,9 +30,10 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
         <main className="min-h-screen bg-background pb-20">
             <Navbar />
 
-            <div className="container pt-32 px-4">
-                <h1 className="text-4xl font-bold tracking-tight mb-4">Projects</h1>
-                <p className="text-muted-foreground mb-8 max-w-2xl">
+            <div className="container pt-32 px-4 sm:px-8">
+                <p className="inline-block text-xs font-mono uppercase tracking-[0.15em] bg-foreground text-background rounded-full px-3 py-1 mb-3">Portfolio</p>
+                <h1 className="text-3xl sm:text-4xl font-display font-bold tracking-tight mb-4">Projects</h1>
+                <p className="text-muted-foreground mb-10 max-w-xl text-sm leading-relaxed">
                     A comprehensive list of my work, featuring fullstack applications, open source contributions, and technical experiments.
                 </p>
 
@@ -40,14 +41,14 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
                     <ProjectFilter categories={categories} />
                 </Suspense>
 
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {filtered.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
 
                 {filtered.length === 0 && (
-                    <p className="text-center text-muted-foreground py-12">
+                    <p className="text-center text-muted-foreground py-16 text-sm">
                         No projects found in this category.
                     </p>
                 )}
