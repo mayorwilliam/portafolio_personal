@@ -36,9 +36,19 @@ src/
 scripts/         # sync-notion.ts (excluido de tsconfig)
 ```
 
+## Estilo visual
+
+Estética **Warm Minimalism** inspirada en eduardbodak.com:
+- **Light**: fondo crema cálido + negro puro. **Dark**: negro cálido + crema
+- **Section labels**: pills negros monospace (`bg-foreground text-background rounded-full`)
+- **H1**: uppercase, tracking negativo agresivo (`-0.06em`)
+- **Footer**: fondo negro sólido (`bg-foreground text-background`)
+- **font-mono**: usar en labels decorativos y datos técnicos (NO en headings ni body text)
+
 ## Reglas
 
 - **Idioma commits**: Español (usar `/commit-espanol`)
 - **Bordes**: Usar `border-border` (NUNCA `border-white/X`) para compatibilidad light/dark
 - **Prose**: Usar `dark:prose-invert` (NUNCA `prose-invert` solo)
 - **Scripts externos**: Excluir de `tsconfig.json` en `exclude` array
+- **Verificación visual**: Usar MCP Playwright (`.mcp.json`) para screenshots antes/después de cambios de diseño
