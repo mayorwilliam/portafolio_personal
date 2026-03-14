@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════
    PORTFOLIO – Main JavaScript
    Scroll reveals, navbar behavior, mobile menu,
-   smooth scrolling, and carousel logic
+   smooth scrolling, and interactive effects
    ═══════════════════════════════════════════════════ */
 
 (function () {
@@ -13,8 +13,6 @@
     const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('navHamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    const carouselTrack = document.getElementById('carouselTrack');
-    const carouselDots = document.getElementById('carouselDots');
 
     // ─────────────────────────────────────────────
     // SCROLL REVEAL (Intersection Observer)
@@ -25,9 +23,8 @@
 
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry, i) => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        // Stagger siblings slightly
                         const delay = entry.target.dataset.delay || 0;
                         setTimeout(() => {
                             entry.target.classList.add('revealed');
@@ -37,18 +34,17 @@
                 });
             },
             {
-                threshold: 0.12,
-                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1,
+                rootMargin: '0px 0px -60px 0px',
             }
         );
 
         reveals.forEach((el, i) => {
-            // Auto-stagger elements that are siblings
             const parent = el.parentElement;
-            const siblings = Array.from(parent.querySelectorAll('.reveal'));
+            const siblings = Array.from(parent.querySelectorAll(':scope > .reveal'));
             const index = siblings.indexOf(el);
             if (index > 0) {
-                el.dataset.delay = index * 80;
+                el.dataset.delay = index * 100;
             }
             observer.observe(el);
         });
@@ -75,7 +71,7 @@
         }
 
         window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll(); // Initial check
+        onScroll();
     }
 
     // ─────────────────────────────────────────────
@@ -92,7 +88,6 @@
                 : '';
         });
 
-        // Close on link click
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach((link) => {
             link.addEventListener('click', () => {
@@ -125,120 +120,6 @@
                 }
             });
         });
-    }
-
-    // ─────────────────────────────────────────────
-    // CAROUSEL LOGIC
-    // ─────────────────────────────────────────────
-    function initCarousel() {
-        if (!carouselTrack || !carouselDots) return;
-
-        const dots = carouselDots.querySelectorAll('.dot');
-        let currentPage = 0;
-
-        function scrollToPage(page) {
-            const cards = carouselTrack.querySelectorAll('.project-card');
-            if (!cards.length) return;
-
-            const cardsPerPage = window.innerWidth > 768 ? 4 : 2;
-            const totalPages = Math.ceil(cards.length / cardsPerPage);
-            page = Math.max(0, Math.min(page, totalPages - 1));
-
-            const targetCard = cards[page * cardsPerPage];
-            if (targetCard) {
-                const containerPadding = parseInt(
-                    getComputedStyle(document.documentElement).getPropertyValue(
-                        '--container-padding'
-                    )
-                ) || 40;
-
-                carouselTrack.parentElement.scrollTo({
-                    left: targetCard.offsetLeft - containerPadding,
-                    behavior: 'smooth',
-                });
-            }
-
-            currentPage = page;
-            dots.forEach((d, i) => d.classList.toggle('active', i === page));
-        }
-
-        dots.forEach((dot) => {
-            dot.addEventListener('click', () => {
-                scrollToPage(parseInt(dot.dataset.index));
-            });
-        });
-
-        // Update dots on scroll
-        let scrollTimer;
-        carouselTrack.parentElement.addEventListener(
-            'scroll',
-            () => {
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(() => {
-                    const scrollLeft = carouselTrack.parentElement.scrollLeft;
-                    const cards = carouselTrack.querySelectorAll('.project-card');
-                    const cardsPerPage = window.innerWidth > 768 ? 4 : 2;
-
-                    let closestPage = 0;
-                    let minDist = Infinity;
-
-                    cards.forEach((card, i) => {
-                        if (i % cardsPerPage === 0) {
-                            const dist = Math.abs(card.offsetLeft - scrollLeft);
-                            if (dist < minDist) {
-                                minDist = dist;
-                                closestPage = Math.floor(i / cardsPerPage);
-                            }
-                        }
-                    });
-
-                    dots.forEach((d, i) =>
-                        d.classList.toggle('active', i === closestPage)
-                    );
-                }, 100);
-            },
-            { passive: true }
-        );
-    }
-
-    // ─────────────────────────────────────────────
-    // TYPING EFFECT ON HERO (subtle)
-    // ─────────────────────────────────────────────
-    function initHeroEffect() {
-        const heroLabel = document.querySelector('.hero-label');
-        if (!heroLabel) return;
-
-        // Add a subtle cursor blink after the label
-        const cursor = document.createElement('span');
-        cursor.textContent = '|';
-        cursor.style.cssText = `
-            display: inline-block;
-            color: rgba(255,255,255,0.4);
-            animation: blink 1s step-end infinite;
-            margin-left: 2px;
-            font-weight: 300;
-        `;
-
-        // Add blink keyframes
-        if (!document.querySelector('#blink-style')) {
-            const style = document.createElement('style');
-            style.id = 'blink-style';
-            style.textContent = `
-                @keyframes blink {
-                    50% { opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
-        heroLabel.appendChild(cursor);
-
-        // Remove cursor after a few seconds
-        setTimeout(() => {
-            cursor.style.animation = 'none';
-            cursor.style.opacity = '0';
-            cursor.style.transition = 'opacity 0.5s ease';
-        }, 4000);
     }
 
     // ─────────────────────────────────────────────
@@ -276,6 +157,57 @@
     }
 
     // ─────────────────────────────────────────────
+    // MAGNETIC BUTTONS — subtle hover pull effect
+    // ─────────────────────────────────────────────
+    function initMagneticButtons() {
+        const buttons = document.querySelectorAll('.btn-primary, .nav-cta');
+
+        buttons.forEach((btn) => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+    }
+
+    // ─────────────────────────────────────────────
+    // TAG HOVER STAGGER
+    // ─────────────────────────────────────────────
+    function initTagEffects() {
+        const projectRows = document.querySelectorAll('.project-row');
+
+        projectRows.forEach((row) => {
+            const tags = row.querySelectorAll('.tag');
+            const imageLink = row.querySelector('.project-image-link');
+
+            if (imageLink && tags.length) {
+                imageLink.addEventListener('mouseenter', () => {
+                    tags.forEach((tag, i) => {
+                        setTimeout(() => {
+                            tag.style.borderColor = 'var(--border-accent)';
+                            tag.style.color = 'var(--accent)';
+                        }, i * 50);
+                    });
+                });
+
+                imageLink.addEventListener('mouseleave', () => {
+                    tags.forEach((tag) => {
+                        tag.style.borderColor = '';
+                        tag.style.color = '';
+                    });
+                });
+            }
+        });
+    }
+
+    // ─────────────────────────────────────────────
     // INIT
     // ─────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
@@ -283,8 +215,8 @@
         initNavbarScroll();
         initMobileMenu();
         initSmoothScroll();
-        initCarousel();
-        initHeroEffect();
         initActiveNavHighlight();
+        initMagneticButtons();
+        initTagEffects();
     });
 })();
