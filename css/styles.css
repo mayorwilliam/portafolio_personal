@@ -11,14 +11,17 @@
     --text-white-muted: rgba(255, 255, 255, 0.55);
     --text-dark: #1a1a1a;
     --text-dark-muted: #888888;
-    --gradient-start: #7B68EE;
-    --gradient-mid: #9B59B6;
-    --gradient-end: #c471ed;
+    --gradient-start: #00d4ff;
+    --gradient-mid: #00b4d8;
+    --gradient-end: #0096c7;
     --accent-gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
-    --card-purple: linear-gradient(145deg, #7B68EE, #5B4FC7);
-    --card-pink: linear-gradient(145deg, #E84393, #D63384);
-    --card-gray: linear-gradient(145deg, #636e72, #4a4a4a);
-    --card-blue: linear-gradient(145deg, #74b9ff, #0984e3);
+    --cta-gradient: linear-gradient(135deg, #00d4ff, #e040fb);
+    --card-purple: linear-gradient(160deg, #7B68EE, #5B4FC7);
+    --card-pink: linear-gradient(160deg, #ff6b81, #ee5a6f);
+    --card-gray: linear-gradient(160deg, #a4a4a4, #7a7a7a);
+    --card-blue: linear-gradient(160deg, #b8e4ff, #8fd3ff);
+    --card-magenta: linear-gradient(160deg, #e040fb, #c73ce0);
+    --card-lime: linear-gradient(160deg, #f0f07a, #e0e060);
     
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -205,7 +208,7 @@ ul {
     font-weight: 600;
     letter-spacing: 0.12em;
     padding: 10px 24px;
-    background: var(--accent-gradient);
+    background: var(--cta-gradient);
     color: var(--text-white);
     border-radius: 6px;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -213,7 +216,7 @@ ul {
 
 .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(123, 104, 238, 0.35);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.35);
 }
 
 .nav-hamburger {
@@ -279,10 +282,11 @@ ul {
    HERO SECTION
    ═══════════════════════════════════════════════════ */
 .hero {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     padding: 0 var(--container-padding);
+    padding-top: clamp(140px, 18vh, 200px);
     padding-bottom: clamp(60px, 8vh, 120px);
 }
 
@@ -309,12 +313,7 @@ ul {
     max-width: 900px;
 }
 
-.inline-icon {
-    display: inline-block;
-    font-size: 0.7em;
-    vertical-align: middle;
-    margin-right: 4px;
-}
+/* (inline-icon removed) */
 
 .hero-cta {
     font-size: clamp(0.85rem, 1.2vw, 1.05rem);
@@ -361,7 +360,7 @@ ul {
 
 .showcase-card:hover {
     transform: scale(1.02);
-    border-color: rgba(123, 104, 238, 0.3);
+    border-color: rgba(0, 212, 255, 0.3);
 }
 
 .showcase-card img {
@@ -429,7 +428,7 @@ ul {
     color: var(--text-white);
     text-decoration: underline;
     text-underline-offset: 4px;
-    text-decoration-color: rgba(123, 104, 238, 0.5);
+    text-decoration-color: rgba(0, 212, 255, 0.5);
 }
 
 .capabilities-title {
@@ -484,19 +483,25 @@ ul {
 }
 
 .carousel-track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: clamp(16px, 2vw, 24px);
     max-width: var(--max-width);
     margin: 0 auto;
 }
 
+.project-card-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .project-card {
-    min-width: clamp(250px, 22vw, 320px);
+    min-width: clamp(180px, 15vw, 220px);
     border-radius: 16px;
     padding: clamp(20px, 2vw, 28px);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    aspect-ratio: 3/4;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
     flex-shrink: 0;
 }
@@ -510,6 +515,8 @@ ul {
 .card-pink { background: var(--card-pink); }
 .card-gray { background: var(--card-gray); }
 .card-blue { background: var(--card-blue); }
+.card-magenta { background: var(--card-magenta); }
+.card-lime { background: var(--card-lime); }
 
 .card-title {
     font-family: var(--font-primary);
@@ -518,27 +525,20 @@ ul {
     color: var(--text-white);
 }
 
-.card-image-wrapper {
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 16/10;
+.card-lime .card-title {
+    color: var(--text-dark);
 }
 
-.card-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-}
-
-.project-card:hover .card-image-wrapper img {
-    transform: scale(1.05);
+.card-blue .card-title {
+    color: var(--text-dark);
 }
 
 .card-description {
-    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-white-muted);
+    margin-top: 8px;
 }
 
 .carousel-dots {
@@ -780,7 +780,7 @@ ul {
     font-weight: 600;
     letter-spacing: 0.1em;
     padding: 14px 32px;
-    background: var(--accent-gradient);
+    background: var(--cta-gradient);
     color: var(--text-white);
     border-radius: 8px;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -788,7 +788,7 @@ ul {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(123, 104, 238, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 212, 255, 0.4);
 }
 
 .btn-secondary {
@@ -932,11 +932,11 @@ ul {
     }
     
     .carousel-track {
-        padding-right: var(--container-padding);
+        grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .project-card {
-        min-width: 260px;
+        min-width: unset;
     }
     
     .contact-actions {
@@ -954,9 +954,13 @@ ul {
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
+    .carousel-track {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .project-card {
-        min-width: 220px;
+        min-width: unset;
     }
 }
 
