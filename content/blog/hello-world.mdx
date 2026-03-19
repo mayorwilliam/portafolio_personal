@@ -1,0 +1,46 @@
+---
+title: "Hello World: Building My Portfolio with Next.js"
+date: "2026-03-18"
+description: "Why I migrated my portfolio from static HTML to Next.js and what I learned along the way."
+---
+
+## Why Next.js?
+
+After maintaining a static HTML/CSS/JS portfolio for a while, I decided it was time to upgrade. I wanted to be able to write blog posts in **MDX**, have automatic image optimization, and deploy seamlessly with Vercel.
+
+## The Migration Process
+
+The migration was straightforward:
+
+1. Set up a Next.js project with the App Router
+2. Converted each HTML section into a React component
+3. Moved JavaScript behaviors into custom hooks
+4. Added MDX support for blogging
+
+## What I Learned
+
+The key takeaway was keeping things simple. Instead of reaching for heavy animation libraries, I used **Intersection Observer** hooks to replicate the same scroll reveal effects.
+
+```typescript
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+```
+
+## What's Next
+
+Now that the blog infrastructure is in place, I'll be writing more about:
+
+- React patterns and best practices
+- Cloud architecture decisions
+- Mobile development with React Native
+- Open source contributions
+
+Stay tuned!
