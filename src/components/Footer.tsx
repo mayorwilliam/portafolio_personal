@@ -2,7 +2,7 @@ import { siteConfig } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="footer section-light">
+    <footer className="footer section-dark">
       <div className="footer-container">
         <div className="footer-social">
           {siteConfig.socialLinks.map((link) => (
