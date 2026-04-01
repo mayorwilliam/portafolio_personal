@@ -27,7 +27,7 @@ const jobs: Job[] = [
     ],
   },
   {
-    company: "Yaydoo",
+    company: "Yaydoo (acquired by Paystand)",
     role: "FullStack Developer",
     period: "Sep 2022 – Jun 2023",
     location: "Remote",

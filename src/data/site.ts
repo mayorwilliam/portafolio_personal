@@ -8,9 +8,8 @@ export const siteConfig = {
   cvUrl: "/CV_Guillermo_Granados.pdf",
   navItems: [
     { label: "PROJECTS", href: "#projects" },
-    { label: "EXPERIENCE", href: "#experience" },
   ],
-  projectsIntro: "Here's a few things I've been building:",
+  projectsIntro: "Products I've shipped for real companies and users:",
   socialLinks: [
     {
       label: "GITHUB",

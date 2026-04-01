@@ -39,18 +39,40 @@ public/images/     # Static images
 
 ## Current Status
 
-- **Branch**: `react-version`
+- **Branch**: `taste-skill`
 - **Phase**: Listo para deploy (landing + blog + SEO + datos reales)
-- **Sección Projects**: Grid layout con logos de empresa prominentes, mockups Stitch como fallback
+- **Landing sections**: HeroIntro → Where I've Worked (accordion) → Projects (grid asimétrico) → Contact → Footer
+- **Experience section**: Eliminada — absorbida por "Where I've Worked" con accordion expandible
 - **CV Download**: Funcional desde Contact section
 - **Datos**: Proyectos reales con descripciones, tech stacks, y highlights
 
+## Architecture
+
+### Page Sections (src/app/page.tsx)
+```
+ScrollReveal > HeroIntro > Projects (contains worked-section + projects-section) > Contact
+```
+- `worked-section`: 4 company cards con accordion (Ksquare, GlassHive, Yaydoo, Tresthold)
+- `projects-section`: 4 project cards (WallyMe, VendePunto, ayudame247, InmobiliariaXL)
+- Company data lives in Projects.tsx (not in a data file)
+
+### Color System (globals.css :root)
+- Dark theme con variaciones tonales (frío vs cálido), NO alternancia blanco/negro
+- `--bg-dark: #0F0F12` (base frío), `--bg-dark-warm: #151318` (secciones intermedias)
+- `--bg-surface-warm: #1E1B18` (cards sobre fondo cálido)
+- `--glow-warm` / `--glow-warm-strong`: radial gradients amber para atmósfera
+- Accent: amber cálido (`#E8911E → #D4860A → #A85C0A`), saturation <80%
+- Cada sección tiene un radial-gradient ::before/::after para profundidad
+
 ## Design Decisions
 
-- Global CSS (copia del original) para 0 riesgo visual en la migración
+- Global CSS con variables (sin Tailwind) — 0 riesgo visual en la migración
 - Custom hooks con IntersectionObserver en vez de framer-motion (evita 30KB+)
 - Datos de proyectos en TypeScript data files, sin CMS externo
 - Blog con MDX archivos → push → deploy automático
+- taste-skill como guía de diseño: DESIGN_VARIANCE 8, MOTION_INTENSITY 6, VISUAL_DENSITY 4
+- Grids asimétricos (3fr/2fr), NO 3 columnas iguales (taste-skill rule)
+- Sin gradient-text en headers grandes (taste-skill rule)
 
 ## Next Steps
 

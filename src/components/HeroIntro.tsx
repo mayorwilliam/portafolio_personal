@@ -29,7 +29,7 @@ export default function HeroIntro() {
         <div className="hero-intro__grid">
           <div className="hero-intro__statement">
             <h1 className="hero-intro__title reveal">
-              <span className="gradient-text">Fullstack Developer</span>.
+              Fullstack Developer.
               <br />
               I build websites, apps
               <br />
@@ -103,6 +103,10 @@ export default function HeroIntro() {
               <div className="hero-intro__stat">
                 <span className="hero-intro__stat-number">10+</span>
                 <span className="hero-intro__stat-label">Apps in Prod</span>
+              </div>
+              <div className="hero-intro__stat">
+                <span className="hero-intro__stat-number">4</span>
+                <span className="hero-intro__stat-label">Companies</span>
               </div>
             </div>
           </div>

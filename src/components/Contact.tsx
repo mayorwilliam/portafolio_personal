@@ -7,7 +7,7 @@ export default function Contact() {
         <h2 className="contact-heading reveal">
           Have an idea?
           <br />
-          <span className="gradient-text">Let&apos;s make it real</span>.
+          Let&apos;s make it real.
         </h2>
         <p className="contact-subtext reveal">
           Whether you need a website, a mobile app, or a full system from
