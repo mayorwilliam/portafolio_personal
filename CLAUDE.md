@@ -40,8 +40,10 @@ public/images/     # Static images
 ## Current Status
 
 - **Branch**: `react-version`
-- **Phase**: Migración completa (landing + blog + SEO)
-- **Sección Projects**: Cards con gradientes de color, tags, hover overlay
+- **Phase**: Listo para deploy (landing + blog + SEO + datos reales)
+- **Sección Projects**: Grid layout con logos de empresa prominentes, mockups Stitch como fallback
+- **CV Download**: Funcional desde Contact section
+- **Datos**: Proyectos reales con descripciones, tech stacks, y highlights
 
 ## Design Decisions
 
@@ -52,7 +54,7 @@ public/images/     # Static images
 
 ## Next Steps
 
-- [ ] Reemplazar datos placeholder con proyectos reales
+- [x] Reemplazar datos placeholder con proyectos reales
 - [ ] Configurar deploy en Vercel
 - [ ] Agregar posts de blog reales
-- [ ] Actualizar social links y email en `src/data/site.ts`
+- [x] Actualizar social links y email en `src/data/site.ts`

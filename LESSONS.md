@@ -12,3 +12,14 @@
 - Menos es más: una sección "Projects" unificada con tags es mejor que 3 secciones separadas (carousel + featured + work grid).
 - Hover overlays para detalles > mostrar toda la info de golpe en cada card.
 - Para proyectos profesionales sin screenshots: gradientes sobrios + badge de empresa funciona bien visualmente.
+
+## Stitch MCP / Herramientas de diseño AI
+
+- Stitch genera buenos mockups individuales pero tiene limitaciones al generar múltiples screens en paralelo — solo la primera suele funcionar bien.
+- Usar herramientas AI de diseño para inspiración selectiva (una sección) es más efectivo que intentar reemplazar todo el diseño de golpe.
+
+## Credibilidad en portafolios
+
+- Logos de empresas reales como elemento visual principal transmiten más credibilidad que mockups generados por AI.
+- Ordenar proyectos profesionales primero demuestra experiencia tangible — proyectos personales/en progreso van al final.
+- Mockups AI son buen fallback para proyectos sin assets visuales, pero no deben dominar sobre logos reales.

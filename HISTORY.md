@@ -3,6 +3,7 @@
 ## Índice
 
 1. [Sesión 1 — Migración Next.js + Rediseño Projects](#sesión-1)
+2. [Sesión 2 — Grid Projects + Logos + CV + Mockups Stitch](#sesión-2)
 
 ---
 
@@ -35,3 +36,35 @@
 ### Problema resuelto
 
 - `create-next-app` falló por nombre con mayúsculas → solución: crear en dir temporal y copiar archivos
+
+---
+
+## Sesión 2
+
+**Fecha**: 2026-03-31
+**Branch**: `react-version`
+
+### Rediseño Projects: Scroll horizontal → Grid con logos
+
+- Evaluación de Stitch MCP (Google) para generar mockups — solo Projects resultó mejor
+- Reescritura completa de `Projects.tsx`: de scroll horizontal a CSS Grid (3/2/1 columnas responsive)
+- Logos de empresa como elemento visual principal en cada card (centrados, 65% max-width)
+- Mockups de Stitch como fallback solo para proyectos sin logo
+- Reordenamiento de proyectos: profesionales primero (VendePunto, GlassHive, Ksquare, Yaydoo, Tresthold), personales al final (ayudame247, InmobiliariaXL)
+- Generación de 6 mockups con Stitch MCP para proyectos que los necesitaban
+
+### Integración CV Download
+
+- CV PDF copiado a `public/CV_Guillermo_Granados.pdf`
+- `site.ts`: actualizado `cvUrl` de `"#"` a `"/CV_Guillermo_Granados.pdf"`
+- `Contact.tsx`: agregados atributos `target="_blank"`, `rel="noopener noreferrer"`, `download`
+
+### Datos y configuración
+
+- `projects.ts`: datos reales de 8 proyectos con descripciones, tech stacks, timelines y highlights
+- `site.ts`: email real, social links actualizados, capabilities y tech stack completos
+- Componentes `Experience.tsx`, `HeroIntro.tsx`, `ProjectModal.tsx` creados
+
+### Evaluación de deployment
+
+- Comparativa Dokploy vs Vercel — recomendación: Vercel por integración nativa con Next.js
