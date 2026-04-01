@@ -5,19 +5,26 @@ export default function Contact() {
     <section id="contact" className="contact-section section-dark">
       <div className="contact-container">
         <h2 className="contact-heading reveal">
-          Let&apos;s work <span className="gradient-text">together</span>.
+          Have an idea?
+          <br />
+          <span className="gradient-text">Let&apos;s make it real</span>.
         </h2>
         <p className="contact-subtext reveal">
-          Have a project in mind? Let&apos;s build something amazing.
+          Whether you need a website, a mobile app, or a full system from
+          scratch — tell me what you&apos;re building and I&apos;ll tell you how
+          I can help.
         </p>
-        <a href={`mailto:${siteConfig.email}`} className="contact-email reveal">
+        <a
+          href={`mailto:${siteConfig.email}`}
+          className="contact-email reveal"
+        >
           {siteConfig.email}
         </a>
         <div className="contact-actions reveal">
           <a href={`mailto:${siteConfig.email}`} className="btn-primary">
-            GET IN TOUCH
+            START A CONVERSATION
           </a>
-          <a href={siteConfig.cvUrl} className="btn-secondary">
+          <a href={siteConfig.cvUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer" download>
             DOWNLOAD CV
           </a>
         </div>

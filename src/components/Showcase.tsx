@@ -1,32 +1,51 @@
-import Image from "next/image";
-
 export default function Showcase() {
+  const whatIBuild = [
+    "Websites & Landing Pages",
+    "Mobile Apps",
+    "Full Systems & SaaS",
+    "AI-Powered Features",
+    "Payment Platforms",
+    "Business Automation",
+  ];
+
   return (
     <section className="showcase section-dark">
-      <div className="showcase-grid">
-        <div className="showcase-card reveal">
-          <Image
-            src="/images/avatar.png"
-            alt="Developer Avatar"
-            width={600}
-            height={450}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+      <div className="bento-grid">
+        {/* Big stat: Years */}
+        <div className="bento-card bento-card--stat reveal">
+          <span className="bento-number">6+</span>
+          <span className="bento-label">Years Building Software</span>
         </div>
-        <div className="showcase-card showcase-brand reveal">
-          <div className="brand-text">
-            <span className="brand-accent">DEV</span>
-            <span className="brand-bars">▎▎▎▎▎▎▎</span>
+
+        {/* What I Build */}
+        <div className="bento-card bento-card--tech bento-card--wide reveal">
+          <span className="bento-label">What I Build</span>
+          <div className="bento-chips">
+            {whatIBuild.map((item) => (
+              <span key={item} className="bento-chip">
+                {item}
+              </span>
+            ))}
           </div>
+          <span className="bento-tech-note">
+            Node.js · React Native · AWS · PostgreSQL · AI/LLM
+          </span>
         </div>
-        <div className="showcase-card reveal">
-          <Image
-            src="/images/project-dashboard.png"
-            alt="Code Screenshot"
-            width={600}
-            height={450}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+
+        {/* Currently building */}
+        <div className="bento-card bento-card--current bento-card--wide reveal">
+          <span className="bento-eyebrow">Currently Building</span>
+          <span className="bento-project">WallyMe</span>
+          <span className="bento-project-desc">
+            A personal finance app that uses AI to categorize your expenses
+            automatically — 95%+ accuracy
+          </span>
+        </div>
+
+        {/* Apps stat */}
+        <div className="bento-card bento-card--stat reveal">
+          <span className="bento-number">10+</span>
+          <span className="bento-label">Apps in Production</span>
         </div>
       </div>
     </section>
