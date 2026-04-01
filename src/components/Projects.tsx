@@ -1,71 +1,86 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { projects } from "@/data/projects";
+import type { Project } from "@/data/projects";
+import ProjectModal from "./ProjectModal";
+import { siteConfig } from "@/data/site";
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const handleCardKey = (e: React.KeyboardEvent, project: Project) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setSelectedProject(project);
+    }
+  };
+
   return (
     <section id="projects" className="projects-section section-dark">
-      <h2 className="section-heading reveal">Projects</h2>
-      <div className="pj-grid">
-        {projects.map((project) => (
-          <div
-            key={project.title}
-            className={`pj-card reveal${project.featured ? " pj-card--featured" : ""}${project.darkText ? " pj-card--dark-text" : ""}`}
-            style={{ background: project.gradient }}
-          >
-            {/* Tags — top left */}
-            <div className="pj-card__tags">
-              {project.tags.map((tag) => (
-                <span key={tag} className="pj-tag">
-                  {tag}
+      <div className="projects__container">
+        <p className="projects__intro reveal">{siteConfig.projectsIntro}</p>
+
+        <div className="projects__grid">
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className={`projects__card reveal${project.darkText ? " projects__card--dark" : ""}`}
+              style={{ background: project.gradient }}
+              role="button"
+              tabIndex={0}
+              onClick={() => setSelectedProject(project)}
+              onKeyDown={(e) => handleCardKey(e, project)}
+            >
+              {project.media?.logo ? (
+                <div className="projects__card-logo-main">
+                  <Image
+                    src={project.media.logo}
+                    alt={`${project.title.replace("\n", " ")} logo`}
+                    width={200}
+                    height={200}
+                    unoptimized
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              ) : project.media?.screenshot && (
+                <div className="projects__card-bg">
+                  <Image
+                    src={project.media.screenshot}
+                    alt=""
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+              )}
+
+              {project.featured && (
+                <span className="projects__card-featured">Featured</span>
+              )}
+
+              <div className="projects__card-content">
+                <span className="projects__card-name">
+                  {project.title.replace("\n", " ")}
                 </span>
-              ))}
-            </div>
-
-            {/* Company badge for professional */}
-            {project.company && (
-              <span className="pj-card__company">{project.company}</span>
-            )}
-
-            {/* Title — bottom of card */}
-            <h3 className="pj-card__title">
-              {project.title.split("\n").map((line, i) => (
-                <span key={i}>
-                  {line}
-                  {i < project.title.split("\n").length - 1 && <br />}
-                </span>
-              ))}
-            </h3>
-
-            {/* Hover overlay */}
-            <div className="pj-card__overlay">
-              <p className="pj-card__desc">{project.description}</p>
-              <div className="pj-card__links">
-                {project.demoUrl && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pj-card__link"
-                  >
-                    Demo ↗
-                  </a>
-                )}
-                {project.repoUrl && (
-                  <a
-                    href={project.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pj-card__link"
-                  >
-                    Code ↗
-                  </a>
-                )}
+                <p className="projects__card-desc">{project.description}</p>
+                <div className="projects__card-tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="projects__card-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }
