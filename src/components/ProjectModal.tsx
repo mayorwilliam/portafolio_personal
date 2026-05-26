@@ -164,7 +164,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 rel="noopener noreferrer"
                 className="pj-modal__link pj-modal__link--primary"
               >
-                View Demo ↗
+                Visit Website ↗
               </a>
             )}
             {project.repoUrl && (

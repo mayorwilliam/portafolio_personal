@@ -53,7 +53,7 @@ public/images/     # Static images
 ScrollReveal > HeroIntro > Projects (contains worked-section + projects-section) > Contact
 ```
 - `worked-section`: 4 company cards con accordion (Ksquare, GlassHive, Yaydoo, Tresthold)
-- `projects-section`: project cards (WallyMe, Dientin, InmobiliariaXL)
+- `projects-section`: project cards (WallyMe, Dientin)
 - Company data lives in Projects.tsx (not in a data file)
 
 ### Color System (globals.css :root)

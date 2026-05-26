@@ -240,23 +240,4 @@ export const projects: Project[] = [
       "PII-redacting logger for LFPDPPP compliance",
     ],
   },
-  {
-    title: "InmobiliariaXL",
-    description:
-      "Real estate platform for property listings and search in Colima, Mexico.",
-    tags: ["Personal", "In Progress"],
-    gradient: "linear-gradient(160deg, #3A3A3A, #222222)",
-    color: "#2A2A2A",
-    media: {
-      type: "web",
-    },
-    longDescription:
-      "InmobiliariaXL is a real estate platform designed to modernize property listings and search for the Colima, Mexico market. The platform aims to provide a clean, fast experience for both property seekers and real estate agents.",
-    techStack: ["Vite", "React", "TypeScript"],
-    timeline: "Coming Soon",
-    highlights: [
-      "Real estate platform for Colima, Mexico",
-      "Modern property listing and search experience",
-    ],
-  },
 ];
