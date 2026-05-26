@@ -40,8 +40,7 @@ export const projects: Project[] = [
     featured: true,
     image: "/images/wallyme-logo.png",
     media: {
-      screenshot: "/images/mockups/wallyme-mockup.png",
-      logo: "/images/wallyme-logo.png",
+      screenshot: "/images/mockups/wallyme-mockup.jpg",
       type: "mobile",
     },
     longDescription:
