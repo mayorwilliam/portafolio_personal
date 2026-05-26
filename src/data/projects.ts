@@ -66,47 +66,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "VendePunto",
-    description:
-      "Enterprise point of sale system with real-time multi-terminal sync, serverless AWS infrastructure, and sub-200ms response times.",
-    tags: ["Professional"],
-    gradient: "linear-gradient(160deg, #1a1a1a, #0a0a0a)",
-    color: "#E84393",
-    company: "The Ksquare Group",
-    companyUrl: "https://www.theksquaregroup.com/",
-    demoUrl: "https://vendepunto.com",
-    featured: true,
-    image: "/images/vendepunto-logo.png",
-    media: {
-      screenshot: "/images/mockups/vendepunto-mockup.png",
-      logo: "/images/vendepunto-logo.png",
-      type: "web",
-    },
-    longDescription:
-      "VendePunto is a full-featured enterprise point of sale system built for high-traffic retail environments. The platform supports real-time multi-terminal synchronization via WebSockets, a serverless backend on AWS CDK with Lambda functions, and Redis caching for sub-200ms response times. Designed for 99.9% uptime with CI/CD pipelines via GitHub Actions.",
-    techStack: [
-      "Java",
-      "Node.js",
-      "NestJS",
-      "PostgreSQL",
-      "AWS CDK",
-      "Lambda",
-      "Redis",
-      "WebSockets",
-      "Docker",
-    ],
-    timeline: "Sep 2024 – May 2025",
-    highlights: [
-      "99.9% uptime in production",
-      "Sub-200ms API response times",
-      "Real-time multi-terminal sync via WebSockets",
-      "15+ database tables with complex relations",
-      "Serverless infrastructure with AWS CDK",
-      "Redis caching layer for performance",
-      "CI/CD pipelines with GitHub Actions",
-    ],
-  },
-  {
     title: "GlassHive",
     description:
       "CRM import/export microservices integrating Salesforce, HubSpot, Halo, and other platforms for seamless data migration.",

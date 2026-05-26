@@ -35,7 +35,7 @@ const companies: Company[] = [
       "Cut database load by 60% implementing Redis caching strategies for hot paths",
       "Built real-time multi-terminal sync via WebSockets for enterprise POS system",
       "85%+ test coverage across all projects with automated CI/CD via GitHub Actions",
-      "Designed 15+ database tables with complex relations for VendePunto POS",
+      "Designed 15+ database tables with complex relations for enterprise POS",
       "Sub-200ms API response times on high-traffic endpoints",
       "99.9% uptime across all production systems",
     ],
